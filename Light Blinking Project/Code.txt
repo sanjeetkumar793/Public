@@ -1,1 +1,67 @@
+#include <LiquidCrystal.h>
+
+int wait = 500;
+
+// Initialize the LCD library with the pins
+LiquidCrystal lcd(9, 10, 5, 6, 3, 11);  // RS, EN, D4, D5, D6, D7
+
+void setup()
+{
+  lcd.begin(16, 2); // initialize the LCD as 16x2
+  lcd.clear();
+  
+  pinMode(13, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(2, OUTPUT);
+}
+
+void displayMessage(String ledColor) {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Light is ON");
+  lcd.setCursor(0, 1);
+  lcd.print("LED: " + ledColor);
+}
+
+void loop()
+{
+  digitalWrite(13, HIGH);
+  displayMessage("White");
+  delay(wait);
+  digitalWrite(13, LOW);
+  delay(wait);
+
+  digitalWrite(12, HIGH);
+  displayMessage("Red");
+  delay(wait);
+  digitalWrite(12, LOW);
+  delay(wait);
+
+  digitalWrite(8, HIGH);
+  displayMessage("Green");
+  delay(wait);
+  digitalWrite(8, LOW);
+  delay(wait);
+
+  digitalWrite(7, HIGH);
+  displayMessage("Blue");
+  delay(wait);
+  digitalWrite(7, LOW);
+  delay(wait);
+
+  digitalWrite(4, HIGH);
+  displayMessage("Yellow");
+  delay(wait);
+  digitalWrite(4, LOW);
+  delay(wait);
+
+  digitalWrite(2, HIGH);
+  displayMessage("Orange");
+  delay(wait);
+  digitalWrite(2, LOW);
+  delay(wait);
+}
 
